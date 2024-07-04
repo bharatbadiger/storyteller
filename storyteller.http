@@ -1,0 +1,6 @@
+@storyteller_HostAddress = http://localhost:5219
+
+GET {{storyteller_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

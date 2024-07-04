@@ -1,0 +1,7 @@
+namespace Storyteller.Models
+{
+    public class UpdateModelDTO
+    {
+        public Dictionary<string, object> Properties { get; set; }
+    }
+}
