@@ -9,7 +9,7 @@ public class StoryChatRequestDTO
     public string? ReactionType { get; set; }
     public bool ReactionEnabled { get; set; }
     public ChatSender Sender { get; set; }
-    public DateTime ChatTimestamp { get; set; }
+    public DateTime? ChatTimestamp { get; set; }
 }
 
 public class StoryReference

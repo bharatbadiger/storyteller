@@ -34,6 +34,11 @@ namespace Storyteller.Data
                             break;
                     }
                 }
+                if (entry.Entity is StoryChat storyChat)
+                {
+                    if (!storyChat.ChatTimestamp.HasValue)
+                        storyChat.ChatTimestamp = currentTime;
+                }
             }
             return await base.SaveChangesAsync(cancellationToken);
         }

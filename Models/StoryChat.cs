@@ -29,6 +29,6 @@ namespace Storyteller.Models
         [EnumDataType(typeof(ChatSender))]
         public ChatSender Sender { get; set; }
 
-        public DateTime ChatTimestamp { get; set; }
+        public DateTime? ChatTimestamp { get; set; }
     }
 }
