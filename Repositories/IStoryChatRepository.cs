@@ -11,6 +11,6 @@ namespace Storyteller.Repositories
         Task<bool> DeleteAsync(long id);
         Task<IEnumerable<StoryChat>> GetByStoryIdAsync(long storyId);
         Task<long?> GetMaxSerialNumberByStoryIdAsync(long storyId);
-        Task<IEnumerable<StoryChat>> GetByStoryIdOrderBySerialNumberAsync(long storyId);
+        Task<IEnumerable<StoryChat>> GetByStoryIdOrderByIdAsync(long storyId);
     }
 }

@@ -10,7 +10,7 @@ namespace Storyteller.Services
         Task<StoryChat> UpdateAsync(StoryChat storyChat);
         Task<bool> DeleteAsync(long id);
         Task<IEnumerable<StoryChat>> GetByStoryIdAsync(long storyId);
-        Task<IEnumerable<StoryChat>> GetByStoryIdOrderBySerialNumberAsync(long storyId);
+        Task<IEnumerable<StoryChat>> GetByStoryIdOrderByIdAsync(long storyId);
         Task<long?> GetMaxSerialNumberByStoryIdAsync(long storyId);
         
     }

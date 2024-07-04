@@ -1,9 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Storyteller.Data;
 using Storyteller.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Storyteller.Repositories
 {
@@ -71,7 +68,7 @@ namespace Storyteller.Repositories
                                  .MaxAsync(s => (long?)s.SerialNumber);
         }
 
-        public async Task<IEnumerable<StoryChat>> GetByStoryIdOrderBySerialNumberAsync(long storyId)
+        public async Task<IEnumerable<StoryChat>> GetByStoryIdOrderByIdAsync(long storyId)
         {
             return await _context.StoryChats
                                  .Where(s => s.Story.Id == storyId)
@@ -79,7 +76,7 @@ namespace Storyteller.Repositories
                                     .ThenInclude(story => story.Author)
                                 .Include(s => s.Story)
                                     .ThenInclude(story => story.Category)
-                                 .OrderByDescending(s => s.Id)
+                                 .OrderBy(s => s.Id)
                                  .ToListAsync();
         }
     }

@@ -42,9 +42,9 @@ namespace Storyteller.Services
             return await _storyChatRepository.GetByStoryIdAsync(storyId);
         }
 
-        public async Task<IEnumerable<StoryChat>> GetByStoryIdOrderBySerialNumberAsync(long storyId)
+        public async Task<IEnumerable<StoryChat>> GetByStoryIdOrderByIdAsync(long storyId)
         {
-            return await _storyChatRepository.GetByStoryIdOrderBySerialNumberAsync(storyId);
+            return await _storyChatRepository.GetByStoryIdOrderByIdAsync(storyId);
         }
         public async Task<long?> GetMaxSerialNumberByStoryIdAsync(long storyId)
         {

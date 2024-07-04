@@ -143,22 +143,10 @@ namespace Storyteller.Controllers
             });
         }
 
-        [HttpGet("by-story/{storyId}")]
-        public async Task<ActionResult<ApiResponse<IEnumerable<StoryChat>>>> GetByStoryId(long storyId)
-        {
-            var storyChats = await _storyChatService.GetByStoryIdAsync(storyId);
-            return Ok(new ApiResponse<IEnumerable<StoryChat>>
-            {
-                StatusCode = (int)HttpStatusCode.OK,
-                Message = "Story chats retrieved successfully",
-                Data = storyChats
-            });
-        }
-
         [HttpGet("story/{storyId}")]
         public async Task<ActionResult<ApiResponse<IEnumerable<StoryChat>>>> GetByStoryIdOrderBySerialNumber(long storyId)
         {
-            var storyChats = await _storyChatService.GetByStoryIdOrderBySerialNumberAsync(storyId);
+            var storyChats = await _storyChatService.GetByStoryIdOrderByIdAsync(storyId);
             return Ok(new ApiResponse<IEnumerable<StoryChat>>
             {
                 StatusCode = (int)HttpStatusCode.OK,
