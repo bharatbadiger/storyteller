@@ -6,6 +6,8 @@ namespace Storyteller.DTO
         public required AuthorRequest Author { get; set; }
         public string? Name { get; set; }
         public string? Image { get; set; }
+        public string? UserMe { get; set; }
+        public string? UserOther { get; set; }
         public string? Tags { get; set; }
     }
 

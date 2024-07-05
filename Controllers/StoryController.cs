@@ -158,6 +158,8 @@ namespace Storyteller.Controllers
                     Author = author,
                     Name = request.Name,
                     Image = request.Image,
+                    UserMe = request.UserMe,
+                    UserOther = request.UserOther,
                     Tags = request.Tags
                 };
 

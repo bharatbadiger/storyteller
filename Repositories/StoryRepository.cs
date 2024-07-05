@@ -7,10 +7,11 @@ namespace Storyteller.Repositories
     public class StoryRepository : IStoryRepository
     {
         private readonly ApplicationDbContext _context;
-
-        public StoryRepository(ApplicationDbContext context)
+        private readonly IStoryChatRepository _storyChatRepository;
+        public StoryRepository(ApplicationDbContext context, IStoryChatRepository storyChatRepository)
         {
             _context = context;
+            _storyChatRepository = storyChatRepository;
         }
 
         public async Task<IEnumerable<Story>> GetAllAsync()
@@ -50,7 +51,11 @@ namespace Storyteller.Repositories
             {
                 return false;
             }
-
+            var storyChats = await _storyChatRepository.GetByStoryIdAsync(id);
+            foreach (var storyChat in storyChats)
+            {
+                await _storyChatRepository.DeleteAsync(storyChat.Id);
+            }
             _context.Stories.Remove(story);
             await _context.SaveChangesAsync();
             return true;
@@ -79,7 +84,7 @@ namespace Storyteller.Repositories
                 .Include(s => s.Category)
                 .Where(s => s.Author.Name.Contains(authorName))
                 .ToListAsync();
-        }        
+        }
         public async Task<IEnumerable<Story>> GetByTagsContainingAsync(string tag)
         {
             return await _context.Stories
@@ -87,6 +92,6 @@ namespace Storyteller.Repositories
             .Include(s => s.Category)
             .Where(s => s.Tags.Contains(tag))
             .ToListAsync();
-        }        
+        }
     }
 }

@@ -12,9 +12,9 @@ namespace Storyteller.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Story> Stories { get; set; }
         public DbSet<StoryChat> StoryChats { get; set; }
-        public DbSet<Subscription> Subscriptions { get; set; }   
-        public DbSet<User> Users { get; set; }   
-        public DbSet<UserFollowAuthor> UserFollowAuthors { get; set; }   
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserFollowAuthor> UserFollowAuthors { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
